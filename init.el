@@ -1,5 +1,6 @@
 
 ;; TODO: Configurar lsp-ui para conseguir acessar facilmente as declaracoes e para ele mostrar warnings e mensagens de erro na linha
+;; TODO: Desabilitar C-z
 
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
@@ -26,6 +27,7 @@
   (which-key-mode)
   (which-key-setup-side-window-right))
 
+; Syntax highlight
 (use-package alchemist
   :ensure t
   :config
@@ -36,6 +38,7 @@
   :config
   (global-company-mode))
 
+; Code navigation and more...
 (use-package ido
   :config
   (ido-mode t))
@@ -50,21 +53,18 @@
   :config
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-css-indent-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . html-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode)))
 
+; UI show error
 (use-package flycheck
   :ensure t
   :config
   (global-flycheck-mode))
-
-(use-package lsp-mode
-  :ensure t
-  :config
-  (setq lsp-diagnostic-clean-after-change t)
-  (setq lsp-modeline-code-actions-enable t))
 
 (use-package spacemacs-theme
   :defer t
@@ -81,10 +81,30 @@
   ("C-c b" . centaur-tabs-backward)
   ("C-c j" . 'centaur-tabs--create-new-tab))
 
+; Find something in the project
 (use-package deadgrep
   :ensure t
   :config
   (global-set-key (kbd "<f5>") #'deadgrep))
+
+(use-package lsp-mode
+  :commands lsp
+  :ensure t
+  :diminish lsp-mode
+  :hook
+  (elixir-mode . lsp)
+  :init
+  (add-to-list 'exec-path "elixir-config/elixir-ls-1.12"))
+
+; Show error in UI
+(use-package lsp-ui
+  :ensure t)
+
+(use-package haskell-mode
+  :ensure t)
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\postgres_data\\'"))
 
 ;; emacs stuff
 (custom-set-variables
@@ -116,7 +136,7 @@
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(package-selected-packages
-   '(deadgrep ewal-spacemacs-themes lsp-mode flycheck web-mode neotree alchemist which-key use-package))
+   '(haskell-mode deadgrep ewal-spacemacs-themes flycheck web-mode neotree alchemist which-key use-package))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#262626")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
