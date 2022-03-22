@@ -1,6 +1,5 @@
-
-;; TODO: Configurar lsp-ui para conseguir acessar facilmente as declaracoes e para ele mostrar warnings e mensagens de erro na linha
-;; TODO: Desabilitar C-z
+;;; Emacs config
+;;; Carlos Morette
 
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
@@ -60,26 +59,22 @@
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode)))
 
-; UI show error
+;; UI show error
 (use-package flycheck
   :ensure t
   :config
   (global-flycheck-mode))
 
-(use-package spacemacs-theme
-  :defer t
+(use-package color-theme-sanityinc-tomorrow
   :ensure t)
 
-(use-package centaur-tabs
-  :ensure t
-  :demand
-  :config
-  (centaur-tabs-mode t)
-  (setq centaur-tabs-style "slant")
-  :bind
-  ("C-c n" . centaur-tabs-forward)
-  ("C-c b" . centaur-tabs-backward)
-  ("C-c j" . 'centaur-tabs--create-new-tab))
+;; Tab
+((lambda ()
+   (tab-bar-mode)
+   (global-set-key (kbd "C-c n") 'tab-bar-switch-to-next-tab)
+   (global-set-key (kbd "C-c b") 'tab-bar-switch-to-prev-tab)
+   (global-set-key (kbd "C-c j") 'tab-bar-new-tab)
+   (global-set-key (kbd "C-c k") 'tab-bar-close-tab)))
 
 ; Find something in the project
 (use-package deadgrep
@@ -94,7 +89,8 @@
   :hook
   (elixir-mode . lsp)
   :init
-  (add-to-list 'exec-path "elixir-config/elixir-ls-1.12"))
+  (add-to-list 'exec-path "elixir-config/elixir-ls-1.12")
+  (setq lsp-elixir-suggest-specs nil))
 
 ; Show error in UI
 (use-package lsp-ui
@@ -103,41 +99,22 @@
 (use-package haskell-mode
   :ensure t)
 
+(use-package racket-mode
+  :ensure t)
+
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\postgres_data\\'"))
 
-;; emacs stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#080808" "#d70000" "#67b11d" "#875f00" "#268bd2" "#af00df" "#00ffff" "#b2b2b2"])
- '(custom-enabled-themes '(spacemacs-dark))
+ '(custom-enabled-themes '(sanityinc-tomorrow-night))
  '(custom-safe-themes
-   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "ba72dfc6bb260a9d8609136b9166e04ad0292b9760a3e2431cf0cd0679f83c3a" "41098e2f8fa67dc51bbe89cce4fb7109f53a164e3a92356964c72f76d068587e" default))
- '(hl-todo-keyword-faces
-   '(("TODO" . "#dc752f")
-     ("NEXT" . "#dc752f")
-     ("THEM" . "#2aa198")
-     ("PROG" . "#268bd2")
-     ("OKAY" . "#268bd2")
-     ("DONT" . "#d70000")
-     ("FAIL" . "#d70000")
-     ("DONE" . "#86dc2f")
-     ("NOTE" . "#875f00")
-     ("KLUDGE" . "#875f00")
-     ("HACK" . "#875f00")
-     ("TEMP" . "#875f00")
-     ("FIXME" . "#dc752f")
-     ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f")))
- '(org-fontify-done-headline nil)
- '(org-fontify-todo-headline nil)
+   '("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default))
  '(package-selected-packages
-   '(haskell-mode deadgrep ewal-spacemacs-themes flycheck web-mode neotree alchemist which-key use-package))
- '(pdf-view-midnight-colors '("#b2b2b2" . "#262626")))
+   '(color-theme-sanityinc-tomorrow racket-mode haskell-mode lsp-ui lsp-mode deadgrep spacemacs-theme flycheck web-mode neotree alchemist which-key use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
