@@ -73,8 +73,10 @@
    (tab-bar-mode)
    (global-set-key (kbd "C-c n") 'tab-bar-switch-to-next-tab)
    (global-set-key (kbd "C-c b") 'tab-bar-switch-to-prev-tab)
+
    (global-set-key (kbd "C-c j") 'tab-bar-new-tab)
    (global-set-key (kbd "C-c k") 'tab-bar-close-tab)))
+
 
 ; Find something in the project
 (use-package deadgrep
