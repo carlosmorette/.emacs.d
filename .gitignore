@@ -5,3 +5,6 @@ elixir-config
 network-security.data
 ac-comphist.dat
 ido.last
+auto-save-list
+newsticker
+racket-mode
