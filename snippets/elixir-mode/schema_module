@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: schema_module
+# key: schema_module
+# --
+
+defmodule $1 do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "$2" do
+  end
+
+  def changeset($3, attrs) do
+    $3
+    |> cast(attrs, [])
+  end
+end

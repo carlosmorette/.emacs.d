@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: controller_module
+# key: controller_module
+# --
+
+defmodule $1 do
+  use KontaWeb, :controller
+
+  def create(conn, _params) do
+    $0
+  end
+end
