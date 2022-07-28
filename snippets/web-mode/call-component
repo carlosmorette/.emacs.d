@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: call component
+# key: cc
+# --
+
+<$1 />

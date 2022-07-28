@@ -62,8 +62,7 @@
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode)))
 
 ;; UI show error
 (use-package flycheck
@@ -154,7 +153,7 @@
  '(beacon-color "#cc6666")
  '(custom-enabled-themes '(sanityinc-tomorrow-night))
  '(custom-safe-themes
-   '("e9e7dddb7a23bf9d108863ef25f4abdda0b09a18beabb0edd0ac2c22fc9c22c9" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default))
+   '("10a4bd4ea3de6e62ada1aa793526e4f86a9cd3bde5eda7b21d345ab09d09598a" "d683be98842eb8ea4d3dc6dc53c87eec23fdd8586431b05fa3106014c03c7af0" "e9e7dddb7a23bf9d108863ef25f4abdda0b09a18beabb0edd0ac2c22fc9c22c9" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default))
  '(fci-rule-color "#373b41")
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
  '(frame-background-mode 'dark)
