@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: controller
+# key: controller
+# --
+
+defmodule $1. do
+  use $1, :controller
+
+  def create(conn, _params) do
+    $0
+  end
+end
