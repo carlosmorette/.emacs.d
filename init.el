@@ -135,11 +135,14 @@
 
 (add-hook 'web-mode-hook
           (lambda ()
-            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+            (when (string-equal (or "tsx" "ts") (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\postgres_data\\'"))
+
+(use-package clojure-mode
+  :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -162,7 +165,7 @@
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(gruvbox-theme tide yasnippet color-theme-sanityinc-tomorrow racket-mode haskell-mode lsp-ui lsp-mode deadgrep spacemacs-theme flycheck web-mode neotree alchemist which-key use-package))
+   '(clojure-mode cider gruvbox-theme tide yasnippet color-theme-sanityinc-tomorrow racket-mode haskell-mode lsp-ui lsp-mode deadgrep spacemacs-theme flycheck web-mode neotree alchemist which-key use-package))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    '((20 . "#cc6666")
