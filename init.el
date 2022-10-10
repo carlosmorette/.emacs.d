@@ -1,5 +1,29 @@
-;;; Emacs config
-;;; Carlos Morette
+;;; init.el --- My config file                       -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2022  morette
+
+;; Author: morette;;; init.el <carlos.morette@outlook.com>
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; This module contains my personal config file
+
+;;; Code:
+
+(provide 'init)
 
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
@@ -165,7 +189,7 @@
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(flycheck-credo clojure-mode cider gruvbox-theme tide yasnippet color-theme-sanityinc-tomorrow racket-mode haskell-mode lsp-ui lsp-mode deadgrep spacemacs-theme flycheck web-mode neotree which-key use-package))
+   '(exwm flycheck-credo clojure-mode cider gruvbox-theme tide yasnippet color-theme-sanityinc-tomorrow racket-mode haskell-mode lsp-ui lsp-mode deadgrep spacemacs-theme flycheck web-mode neotree which-key use-package))
  '(pdf-view-midnight-colors '("#282828" . "#f2e5bc"))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -195,3 +219,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:extend t :background "black")))))
+
+;;; init.el ends here
