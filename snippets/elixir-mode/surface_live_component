@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Create Surface LiveComponent
+# key: surface_live_component
+# --
+
+defmodule $1.$2 do
+  use Surface.LiveComponent
+
+  def render(assigns) do                                      
+    ~F"""                                                     
+    <div>$0</div>
+    """                                                       
+  end                                                         
+end                                                           
