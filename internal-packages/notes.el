@@ -15,7 +15,7 @@
   "Create new note by FILENAME."
   (interactive "sNote file: ")
   (note-maybe-create-root-directory)
-  (let* ((complete-filename (concat filename ".txt"))
+  (let* ((complete-filename (concat filename ".org"))
 	(full-path-file (concat root-directory "/" complete-filename)))
     (make-empty-file full-path-file)
     (find-file full-path-file)
