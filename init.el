@@ -109,6 +109,9 @@
 (use-package color-theme-sanityinc-tomorrow
   :ensure t)
 
+(use-package moe-theme
+  :ensure t)
+
 ; Find something in the project
 (use-package deadgrep
   :ensure t
