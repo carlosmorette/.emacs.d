@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Absinthe Middleware boilerplate
+# key: middleware
+# --
+
+defmodule &1 do
+  @behaviour Absinthe.Middleware
+  $0
+  def call(%Absinthe.Resolution{state: :unresolved} = resolution, _opts) do
+    resolution
+  end
+
+  def call(res, _opts), do: res
+end

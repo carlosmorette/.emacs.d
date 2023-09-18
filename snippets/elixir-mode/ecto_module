@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: schema_module
-# key: schema_module
+# key: ecto_module
 # --
 
 defmodule $1 do
