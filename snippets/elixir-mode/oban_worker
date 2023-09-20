@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: oban_worker
+# key: oban_worker
+# --
+
+defmodule $1 do
+  use Oban.Worker, queue: $2, max_attempts: $3
+
+  def enqueue_job(args) do
+    args
+    |> __MODULE__.new()
+    |> Oban.insert()
+  end
+
+  @impl Oban.Worker
+  def perform(%Oban.Job{}) do
+    $0
+  end
+end
