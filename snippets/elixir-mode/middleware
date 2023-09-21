@@ -3,7 +3,7 @@
 # key: middleware
 # --
 
-defmodule &1 do
+defmodule $1 do
   @behaviour Absinthe.Middleware
   $0
   def call(%Absinthe.Resolution{state: :unresolved} = resolution, _opts) do
