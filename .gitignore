@@ -1,6 +1,6 @@
 .cache
 elpa/
-elixir-config
+elixir-config/
 .lsp-session-v1
 network-security.data
 ac-comphist.dat
