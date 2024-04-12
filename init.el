@@ -129,6 +129,9 @@
 
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\postgres_data\\'"))
+
+;;; Personal package
+(load-file "~/.emacs.d/internal-packages/notes.el")
  
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
